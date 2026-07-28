@@ -1,0 +1,159 @@
+{
+  "version": "8",
+  "dialect": "postgres",
+  "id": "260d9a21-a4fc-46b1-a570-3618c7af54a3",
+  "prevIds": [
+    "c91b7b87-48ed-4f84-83d3-1108acddadbe"
+  ],
+  "ddl": [
+    {
+      "isRlsEnabled": false,
+      "name": "licenses",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "(gen_random_uuid()::text)",
+      "generated": null,
+      "identity": null,
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "owner_email",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'free'",
+      "generated": null,
+      "identity": null,
+      "name": "plan",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "100",
+      "generated": null,
+      "identity": null,
+      "name": "credits",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'livre'",
+      "generated": null,
+      "identity": null,
+      "name": "device_status",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'ativa'",
+      "generated": null,
+      "identity": null,
+      "name": "status",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "expires_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "licenses_pkey",
+      "schema": "public",
+      "table": "licenses",
+      "entityType": "pks"
+    },
+    {
+      "value": "\"plan\" in ('free', 'pro')",
+      "name": "licenses_plan_check",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "value": "\"credits\" >= 0",
+      "name": "licenses_credits_check",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "value": "\"device_status\" in ('livre', 'vinculado')",
+      "name": "licenses_device_status_check",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "licenses"
+    },
+    {
+      "value": "\"status\" in ('ativa', 'banida')",
+      "name": "licenses_status_check",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "licenses"
+    }
+  ],
+  "renames": []
+}
